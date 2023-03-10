@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlama.io.rentACar.business.abstracts.BrandService;
 import kodlama.io.rentACar.entities.concretes.Brand;
 
-@RestController // annotation. C# da [] ile yapıyorduk
+@RestController // annotation. C# da [] ile yapıyorduk. Javada @ ile yapıyoruz
 @RequestMapping("/api/brands")
 public class BrandsController {
 	private BrandService brandService;
@@ -24,5 +24,4 @@ public class BrandsController {
 	List<Brand> getAll() {
 		return brandService.getAll();
 	}
-
 }
