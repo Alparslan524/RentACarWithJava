@@ -56,6 +56,11 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.6</version>
 		</dependency>
+		<dependency>
+			<groupId>Alparslan</groupId>
+			<artifactId>Kodlama.io.Devs</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
