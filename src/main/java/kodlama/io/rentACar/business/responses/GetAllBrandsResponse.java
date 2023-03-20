@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class GetAllBrandsResponse {
 	private int id;
 	private String name;
+	// Arayüze gönderdiğimiz cevap
 }

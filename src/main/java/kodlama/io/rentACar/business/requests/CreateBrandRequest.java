@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateBrandRequest {
 	private String name;
+	// Yaratmak-Marka-İstek
+	//Marka yaratmak için arayüzden gelen istek
 }
