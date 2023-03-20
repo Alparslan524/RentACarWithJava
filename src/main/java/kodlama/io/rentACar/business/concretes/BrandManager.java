@@ -30,7 +30,6 @@ public class BrandManager implements BrandService {
 
 	@Override
 	public List<GetAllBrandsResponse> getAll() {
-
 		List<Brand> brands = brandRepository.findAll();
 		List<GetAllBrandsResponse> brandsResponse = brands.stream()
 				.map(brand -> this.modelMapperService.forResponse().map(brand, GetAllBrandsResponse.class))
@@ -38,8 +37,16 @@ public class BrandManager implements BrandService {
 		// brands elemanlarını stream() ile geziyor ve brand elemanına atıyor.
 		// Sonra map ile brand elemanını GetAllBrandsResponseye çeviriyor
 		// En sonda Collectors.toList() ile listeye çeviriyor
+		// Ve bunu da GetAllBrandsResponse tipinde brandsResponse'a eşitliyoruz
 
 		return brandsResponse;
+	}
+
+	@Override
+	public GetByIdBrandResponse getById(int id) {
+		Brand brand = brandRepository.findById(id).orElseThrow();
+		GetByIdBrandResponse response = modelMapperService.forResponse().map(brand, GetByIdBrandResponse.class);
+		return response;
 	}
 
 	@Override
@@ -55,13 +62,6 @@ public class BrandManager implements BrandService {
 		Brand brand = modelMapperService.forRequest().map(createBrandRequest, Brand.class);
 
 		brandRepository.save(brand);
-	}
-
-	@Override
-	public GetByIdBrandResponse getById(int id) {
-		Brand brand = brandRepository.findById(id).orElseThrow();
-		GetByIdBrandResponse response = modelMapperService.forResponse().map(brand, GetByIdBrandResponse.class);
-		return response;
 	}
 
 	@Override
