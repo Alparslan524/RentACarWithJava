@@ -1,10 +1,13 @@
 package kodlama.io.rentACar.entities.concretes;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,11 +19,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Brand {
-	@Id//Primary Key
+	@Id // Primary Key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 
 	@Column(name = "name")
 	private String name;
+
+	// Brand One, Many Model
+	// Model Classındaki brand nesnesi
+	@OneToMany(mappedBy = "brand")
+	private List<Model> models;
 }
