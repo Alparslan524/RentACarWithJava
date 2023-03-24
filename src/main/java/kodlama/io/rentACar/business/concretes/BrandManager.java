@@ -62,7 +62,6 @@ public class BrandManager implements BrandService {
 		// Mapping ile bu spagetti koddan kurtulduk
 		brandBusinessRules.checkIfBrandNameExists(createBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(createBrandRequest, Brand.class);
-
 		brandRepository.save(brand);
 	}
 

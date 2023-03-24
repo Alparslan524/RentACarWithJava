@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kodlama.io.rentACar.business.abstracts.ModelService;
 import kodlama.io.rentACar.business.requests.CreateModelRequest;
+import kodlama.io.rentACar.business.requests.UpdateModelRequest;
 import kodlama.io.rentACar.business.responses.GetAllModelsResponse;
 import kodlama.io.rentACar.business.responses.GetByIdModelResponse;
 import kodlama.io.rentACar.core.utilities.mappers.abstracts.ModelMapperService;
@@ -43,4 +44,14 @@ public class ModelManager implements ModelService {
 		modelRepository.save(model);
 	}
 
+	@Override
+	public void update(UpdateModelRequest updateModelRequest) {
+		Model model = modelMapperService.forRequest().map(updateModelRequest, Model.class);
+		modelRepository.save(model);
+	}
+
+	@Override
+	public void delete(int id) {
+		modelRepository.deleteById(id);
+	}
 }
