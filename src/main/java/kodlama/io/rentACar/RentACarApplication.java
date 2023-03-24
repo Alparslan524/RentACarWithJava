@@ -45,13 +45,13 @@ public class RentACarApplication {
 		}
 
 		return validationProblemDetails;
-	}// Sadece hatalarınnda çalışır
+	}// Sadece Validation hatalarınnda çalışır
 
 	// Herhangi bir hataya yakalandığı zaman üstteki kodlar çalışarak hata mesajını
 	// bir nevi filtreliyor
 	// ve son kullanıcının anlayacağı şekilde yansıtıyor. Üstteki kod
 	// BusinnesException hatalarında
-	// alttaki kod
+	// alttaki kod Validation hatalarında
 
 	@Bean
 	public ModelMapper getModelMapper() {
